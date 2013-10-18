@@ -27,9 +27,20 @@ var keyBind ={
 /*
 *class of input event gestion.
 *this lib can be use for manage simples inputs with multi events
-*Need to be instanciate in object in init of your game like that, var toto = new Input;
+*Need to be instanciate in object in init of your game.
 
-*Methodes : 
+*HOW TO BIND A EVENT TO A INPUT:
+	*
+	* add in your array keyBind like That :  var keyBind = { KeyNumberOfInput :  { eventToCall : functionToActive() } }
+	*
+
+*HOW TO INSTANTIATE EasyInput : 
+	*
+	* var whatYouWant = new EasyInput(keyBind)
+	*
+	*
+
+*Methodes of EasyInput : 
 * 	addEvent() 2 params necessary	 --> first : string of the event who will be add (keydown,keyup,mousemove etc...); 
 								 	 --> second : dom object like window or a document.getElementBy of what you want;
 	use : for add event listenner on object;
@@ -42,7 +53,7 @@ var keyBind ={
 *	getKeysBind() 
 	use : return you object who contain all keys binding and all events call for those keys.
 */
-var Input = function(object)
+var EasyInput = function(object)
 {
 	var key = object;
 	Input.prototype.addEvent = function(Input , target)
