@@ -18,11 +18,11 @@ function usedOnMouseMove(e)
 /* array of keys who are catched by events*/
 var keyBind ={
 				0 : {
-						mousedown:usedOnMouseDown,
-						mouseup:usedOnMouseUp,
+						mousedown : usedOnMouseDown,
+						mouseup : usedOnMouseUp,
 						mousemove : usedOnMouseMove
 					},
-				87: {keydown: function(){console.log("Down");}, keyup: function(){console.log("Up");},keypress: function(){console.log("bite");}}
+				87: {keydown: function(){console.log("Down");}, keyup: function(){console.log("Up");},keypress: function(){console.log("press");}}
 			};
 /*
 *class of input event gestion.
@@ -56,9 +56,9 @@ var keyBind ={
 var EasyInput = function(object)
 {
 	var key = object;
-	Input.prototype.addEvent = function(Input , target)
+	Input.prototype.addEvent = function(input , target)
 	{	
-		target.addEventListener(Input, this.functionCall,false);
+		target.addEventListener(input, this.functionCall,false);
 	}
 	Input.prototype.functionCall = function(e)
 	{
@@ -67,9 +67,9 @@ var EasyInput = function(object)
 		else
 			console.log("key["+e.keyCode+"] est undefined ou key["+e.keyCode+"]["+e.type+"] n'est pas une fonction");	
 	}
-	Input.prototype.removeEvent = function(Input , target)
+	Input.prototype.removeEvent = function(input , target)
 	{
-		target.removeEventListener(Input,this.functionCall,false);
+		target.removeEventListener(input,this.functionCall,false);
 	}
 	Input.prototype.setKeyBind = function(keyInt , object)
 	{
