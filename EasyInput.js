@@ -30,26 +30,26 @@ var keyBind ={
 *Need to be instanciate in object in init of your game.
 
 *HOW TO BIND A EVENT TO A INPUT:
-	*
-	* add in your array keyBind like That :  var keyBind = { KeyNumberOfInput :  { eventToCall : functionToActive() } }
-	*
+*	Add in your array keyBind like That :  var keyBind = { KeyNumberOfInput :  { eventToCall : functionToActive() } }
+	
 
 *HOW TO INSTANTIATE EasyInput : 
-	*
-	* var whatYouWant = new EasyInput(keyBind)
-	*
-	*
+	
+	* var whatYouWant = new EasyInput(first) Argument : --> first : object of keyBinding,with event and functions call.
+
+	
 
 *Methodes of EasyInput : 
-* 	addEvent() 2 params necessary	 --> first : string of the event who will be add (keydown,keyup,mousemove etc...); 
-								 	 --> second : dom object like window or a document.getElementBy of what you want;
+* 	addEvent(first,second) 2 params necessary	 --> first : string of the event who will be add (keydown,keyup,mousemove etc...); 
+								 				 --> second : dom object like window or a document.getElementBy of what you want;
 	use : for add event listenner on object;
-*	removeEvent() 2 params necessary --> first : string of the event who will be remove (keydown,keyup,mousemove etc...);
-								 	 --> second : dom object who had event listenner;
+*	removeEvent(first,second) 2 params necessary --> first : string of the event who will be remove (keydown,keyup,mousemove etc...);
+								 	 			 --> second : dom object who had event listenner;
 	use : for remove event listenner of an object;
-*	setKeyBind() 2 params necessary	 --> first : integer of the key you want to bind with event(s). 									 
-								 	 --> second : objet of event(s) you want to use and function call by this event: {keypress : function(){}, keydown : functionWhoDoSomething };
+*	setKeyBind(first,second) 2 params necessary	 --> first : integer of the key you want to bind with event(s). 									 
+											 	 --> second : object of event(s) you want to use and function call by this event: {keypress : function(){}, keydown : functionWhoDoSomething };
 	use : for add or edit one key with event(s);	
+
 *	getKeysBind() 
 	use : return you object who contain all keys binding and all events call for those keys.
 */
