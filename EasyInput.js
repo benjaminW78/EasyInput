@@ -161,11 +161,8 @@ var EasyInput = function()
     };
     EasyInput.prototype.functionCall = function(e)
     {
-        console.log("doSOmethign");
         if(key.hasOwnProperty(e.keyCode) && typeof key[e.keyCode][e.type] === "function")
             key[e.keyCode][e.type](e);
-        else
-            console.log("key["+e.keyCode+"] est undefined ou key["+e.keyCode+"]["+e.type+"] n'est pas une fonction");   
     };
     EasyInput.prototype.removeEvent = function(input , target)
     {
