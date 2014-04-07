@@ -177,5 +177,3 @@ var EasyInput = function()
         return index;
     };
 };
-
-module.exports = EasyInput;
