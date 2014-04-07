@@ -28,11 +28,36 @@
 *   getKeysBind() 
     use : return you object who contain all keys binding and all events call for those keys.
 */
+'use strict';
+
 var EasyInput = function()
 {
     var key = {};
+    var gamePadDictionnary = { 
+            buttons:{0:"a",
+                    1:"b",
+                    2:"x",
+                    3:"y",
+                    4:"lb",
+                    5:"rb",
+                    6:"lt",
+                    7:"rt",
+                    8:"select",
+                    9:"start",
+                    10:"leftStickPress",
+                    11:"rightStickPress",
+                    12:"d-pad top",
+                    13:"d-pad bottom",
+                    14:"d-pad left",
+                    15:"d-pad right"},
+            axes:{ 0: "stick-left-x",
+                1: "stick-left-y",
+                2: "stick-right-x",
+                3: "stick-right-y"}
+        }
+
     var DictonnaryKey =  {
-        0: "\\",// use this for touch events...
+        0: "\\",
         8: "backspace",
         9: "tab",
         12: "num",
@@ -132,7 +157,12 @@ var EasyInput = function()
     };
     EasyInput.prototype.addEvent = function(input , target)
     {   
-        target.addEventListener(input, this.functionCall,false);
+        if(input === "gamepad" && !!navigator.webkitGetGamepads ){
+            this.startGamePadLoop(target);
+            return
+        }
+        else 
+            target.addEventListener(input, this.functionCall,false);
     };
     EasyInput.prototype.functionCall = function(e)
     {
@@ -176,4 +206,47 @@ var EasyInput = function()
         }
         return index;
     };
+    EasyInput.prototype.startGamePadLoop = function()
+    {
+        var gamePadFrameBefore =[];
+        var currentGamepads = [];
+        var gamepads ;
+
+        var gamepadLoop = setInterval(function(){
+                                        gamepads = navigator.webkitGetGamepads();
+                                        for (var i=0;i<gamepads.length;i++){
+                                            if(gamePadFrameBefore.length===0){
+                                                if(gamepads[i]!==undefined)
+                                                    gamePadFrameBefore[i]=this.hashCode(JSON.stringify(gamepads[i]));
+                                            }
+                                            else{   
+                                                if(gamepads[i]!==undefined)
+                                                    currentGamepads[i]=this.hashCode(JSON.stringify(gamepads[i]));
+                                                
+                                                if(currentGamepads[i]!==undefined&&gamePadFrameBefore[i]!==currentGamepads[i])
+                                                {}
+                                            }
+                                            
+                                        }
+
+
+                                    },1000/60)
+
+    };
+    EasyInput.prototype.hashCode = function(string){
+        
+        var hash = 0, i, chr, len;
+        
+        if (this.length == 0) return hash;
+        
+        for (i = 0, len = this.length; i < len; i++) {
+            chr   = this.charCodeAt(i);
+            hash  = ((hash << 5) - hash) + chr;
+            hash |= 0; // Convert to 32bit integer
+        }
+      return hash;
+    };
+
 };
+
+module.exports = EasyInput;
