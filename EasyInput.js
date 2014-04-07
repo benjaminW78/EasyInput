@@ -1,33 +1,8 @@
-/*create by : winckell benjamin*/
-
-/*exemples de fonctions appelez aux events*/
-// function usedOnMouseDown()
-// {
-//     console.log("mousedow");
-// }
-// function usedOnMouseUp()
-// {
-//     console.log("mouseUp");
-// }
-// function usedOnMouseMove(e)
-// {
-//     console.log("mouseMove");
-// }
-
-
-/* array of keys who are catched by events*/
-// var keyBind ={
-//                 0 : {
-//                         mousedown : usedOnMouseDown,
-//                         mouseup : usedOnMouseUp,
-//                         mousemove : usedOnMouseMove
-//                     },
-//                 87: {keydown: function(){console.log("Down");}, keyup: function(){console.log("Up");},keypress: function(){console.log("press");}}
-//             };
+// create by : winckell benjamin
 /*
 *class of input event gestion.
 *this lib can be use for manage simples inputs with multi events
-*Need to be instanciate in object in init of your game.
+*Need to be instanciate in init of your game.
 
 *HOW TO BIND A EVENT TO A INPUT:
 *   Add in your array keyBind like That :  var keyBind = { KeyNumberOfInput :  { eventToCall : functionToActive() } }
@@ -57,7 +32,7 @@ var EasyInput = function()
 {
     var key = {};
     var DictonnaryKey =  {
-        0: "\\",
+        0: "\\",// use this for touch events...
         8: "backspace",
         9: "tab",
         12: "num",
@@ -154,7 +129,7 @@ var EasyInput = function()
         225: "alt",
         57392: "ctrl",
         63289: "num"
-      };
+    };
     EasyInput.prototype.addEvent = function(input , target)
     {   
         target.addEventListener(input, this.functionCall,false);
