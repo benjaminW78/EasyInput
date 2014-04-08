@@ -268,7 +268,7 @@ var EasyInput = function()
     EasyInput.prototype.hashCode = function(string){
         
         var hash, i, chr, len;
-        
+
         if (string.length == 0) return hash;
         
         for (i = 0, len = string.length; i < len; i++) {
@@ -276,9 +276,7 @@ var EasyInput = function()
             hash  = ((hash << 5) - hash) + chr;
             hash |= 0; // Convert to 32bit integer
         }
-      return hash;
+        return hash;
     };
 
 };
-
-module.exports = EasyInput;
