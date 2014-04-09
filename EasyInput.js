@@ -228,19 +228,12 @@ var EasyInput = function()
         
         function testGamepad (undefined){
             gamepads = navigator.webkitGetGamepads();
+
             for (var i=0;i<gamepads.length;i++){
-                if(gamePadFrameBefore.length===0){
-                    if(gamepads[i]!==undefined){
-                        gamePadFrameBefore[i]=self.hashCode(JSON.stringify(gamepads[i]));
-                    }
-                }
-                else{   
-                    if(gamepads[i]!==undefined)
-                        currentGamepad[i]=self.hashCode(JSON.stringify(gamepads[i]));
-                      
-                    if(currentGamepad[i]!==undefined && gamePadFrameBefore[i]!==currentGamepad[i])
+                   if(gamepads[i]!==undefined )
                     {
-                        var myGamePad = {buttons:{},axes:{},id:i}
+                        // console.log("YO")
+                        var myGamePad = {buttons:{},axes:{},id:i};
                         var o;
 
                         for(var o=0;o < gamepads[i].buttons.length;o++) {
@@ -256,7 +249,6 @@ var EasyInput = function()
                         gamePadFrameBefore[i] = currentGamepad[i];
                         key.gamepad(myGamePad);
                     }
-                }
             }
 
 
@@ -280,3 +272,4 @@ var EasyInput = function()
     };
 
 };
+module.exports = EasyInput;
