@@ -1,4 +1,28 @@
 {
-    "name": "EasyInput.js",
-    "version": "0.1"
+  "name": "easyinput",
+  "version": "0.1",
+  "main": "EasyInput.js",
+  "homepage": "https://github.com/benjaminW78/EasyInput",
+  "description": "easy input manager for web browsers. Get your key , touch , gamepads events inside your javascript app",
+  "keywords": [
+    "javascript",
+    "js",
+    "input",
+    "manager",
+    "gamepad",
+    "key",
+    "touch",
+    "event"
+  ],
+  "authors": [
+    "winckell benjamin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
