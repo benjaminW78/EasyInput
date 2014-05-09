@@ -1,10 +1,18 @@
 #EasyInput#
 
 ##Description :##
-javascript lib for simply manage yours events on all keys / window gamepad / touch inputs you want.
+javascript lib for simply manage yours events on all keys / window gamepad / touch inputs.
+
+*this script is not minify, and so you can easely read or modify it*
+
+##How to install :##
+
+- 1 : Simply download .rar from github or clone this repo.
+- 2 : You could use bower to install EasyInput inside your project. <br>
+        `bower install EasyInput`
 
 ##WebBrowser compatibility :##
-Every both key and touch Events are working on Firefox , chrome , chromium.
+Both, key and touch Events, are working on chrome , chromium. (when I get some times will update for firefox).
 
 *Warning : gamepad event is actually working **only** on **Chrome** and **chromium**.* 
 
@@ -46,6 +54,9 @@ Every both key and touch Events are working on Firefox , chrome , chromium.
         // like this : key_name = event_name 
         //             value = callback function
         
+        // you could pass string or int for keys you want to targets
+        inputManager.setKeyBind("a",{"keypress":function (){Game.eventController.emit("go-forward");}, "keyup":myfunctionCallback});
+
         inputManager.setKeyBind(0,{"touchend":function (){Game.eventController.emit("go-forward");}, "touchstart":myfunctionCallback});
         
         // for gamepad callBack IT'S ONLY A FUNCTION NOT OBJECT
@@ -86,4 +97,4 @@ gamepad argument structure display to your callback :
       "id": 0
     }        
 
-You can contact me at winckell.benjamin.isart@gmail.com
+You can contact me at winckell.benjamin.isart@gmail.com for give me Feedback, opinions, features needs

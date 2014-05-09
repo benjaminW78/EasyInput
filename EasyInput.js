@@ -272,4 +272,3 @@ var EasyInput = function()
     };
 
 };
-module.exports = EasyInput;
